@@ -9,21 +9,33 @@
 	<description>Simplest possible Java Webapp</description>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>8.1.5.v20120716</version>
-				<configuration>
-					<scanIntervalSeconds>0</scanIntervalSeconds>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>3.3.2</version>
-			</plugin>
-		</plugins>
-	</build>
+    <pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+            </plugin>
+        </plugins>
+    </pluginManagement>
+
+    <plugins>
+        <plugin>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jetty-maven-plugin</artifactId>
+            <version>8.1.5.v20120716</version>
+            <configuration>
+                <scanIntervalSeconds>0</scanIntervalSeconds>
+            </configuration>
+        </plugin>
+
+        <!-- Force WAR plugin usage -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+        </plugin>
+
+    </plugins>
+</build>
 
 </project>
